@@ -1,0 +1,108 @@
+(defdomain aperture(
+
+  ;------------------------------
+  ; Operators
+  ;------------------------------
+
+  (:operator (!move ?l1 ?l2)
+    (
+      (hallway ?l1)
+      (hallway ?l2)
+      (connected ?l1 ?l2)
+      (at ?l1)
+    )
+    (
+      (at ?l1)
+    )
+    (
+      (at ?l2)
+    )
+  )
+
+  (:operator (!enter ?l1 ?l2)
+    (
+      (hallway ?l1)
+      (room ?l2)
+      (connected ?l1 ?l2)
+      (at ?l1)
+    )
+    (
+      (at ?l1)
+    )
+    (
+      (at ?l2)
+    )
+  )
+
+  (:operator (!exit ?l1 ?l2)
+    (
+      (room ?l1)
+      (hallway ?l2)
+      (connected ?l1 ?l2)
+      (at ?l1)
+    )
+    (
+      (at ?l1)
+    )
+    (
+      (at ?l2)
+    )
+  )
+
+  (:operator (!pickup ?c ?l)
+    (
+      (cube ?c)
+      (at ?l)
+      (in ?c ?l)
+      (unloaded)
+    )
+    (
+      (unloaded)
+    )
+    (
+      (has ?c)
+    )
+  )
+
+  (:operator (!drop ?c ?l)
+    (
+      (cube ?c)
+      (at ?l)
+      (has ?c)
+    )
+    (
+      (has ?c)
+    )
+    (
+      (in ?c ?l)
+      (unloaded)
+    )
+  )
+
+  ;------------------------------
+  ; Methods
+  ;------------------------------
+
+  (:method (goto ?to)
+
+    base
+    (
+      (at ?to)
+    )
+    ()
+
+    gotoenter
+    (
+      (at ?from)
+      (hallway ?from)
+      (room ?to)
+      (connected ?from ?to)
+    )
+    (
+      (!enter ?from ?to)
+      (goto ?to)
+    )
+    
+  )
+
+))

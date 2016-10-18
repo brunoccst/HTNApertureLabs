@@ -1,0 +1,28 @@
+(defproblem problem aperture
+
+  ;------------------------------
+  ; Start
+  ;------------------------------
+
+  (
+    (room room1)
+    (room room2)
+    (hallway h1)
+    (connected h1 room1)
+    (connected room1 h1)
+    (connected h1 room2)
+    (connected room2 h1)
+    (cube c1)
+    (at h1)
+    (in c1 room1)
+    (unloaded )
+  )
+
+  ;------------------------------
+  ; Tasks
+  ;------------------------------
+
+  (
+    (goto room2)
+  )
+)

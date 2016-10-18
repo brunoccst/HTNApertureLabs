@@ -1,0 +1,17 @@
+8
+hallway
+connected
+at
+room
+cube
+in
+unloaded
+has
+1
+goto
+5
+!move
+!enter
+!exit
+!pickup
+!drop
