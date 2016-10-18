@@ -6,15 +6,15 @@
 
   (
     (room room1)
-    (room room2)
     (hallway h1)
-    (connected h1 room1)
-    (connected room1 h1)
-    (connected h1 room2)
-    (connected room2 h1)
+    (hallway h2)
+    (hallway h3)
+    (connected h1 h2)
+    (connected h2 room1)
+    (connected h2 h3)
     (cube c1)
-    (at h1)
     (in c1 room1)
+    (at h1)
     (unloaded )
   )
 
@@ -23,6 +23,9 @@
   ;------------------------------
 
   (
-    (goto room2)
+	(goto room1)
+;	(pickup c1 room1)
+;	(goto h3)
+;	(drop c1 h3)
   )
 )

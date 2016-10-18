@@ -102,6 +102,18 @@
       (!enter ?from ?to)
       (goto ?to)
     )
+
+    gotoexit
+    (
+      (at ?from)
+      (room ?from)
+      (hallway ?to)
+      (connected ?from ?to)
+    )
+    (
+      (!exit ?from ?to)
+      (goto ?to)
+    )
     
   )
 
